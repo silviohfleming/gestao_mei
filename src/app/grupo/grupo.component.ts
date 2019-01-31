@@ -11,14 +11,13 @@ export class GrupoComponent implements OnInit {
 
   grupos: Array<any>;
   grupo: any;
-  ncms: Array<any>;
 
   constructor(private grupoService: GrupoService) { }
 
   ngOnInit() {
     this.grupo = {};
     this.listar();
-    this.listarNCM();
+
   }
 
   listar() {
@@ -65,9 +64,5 @@ export class GrupoComponent implements OnInit {
     });
   }
 
-  listarNCM() {
-    console.log('Listar NCM');
-    this.grupoService.listarNCM().subscribe(dados => this.ncms = dados);
-  }
 
 }

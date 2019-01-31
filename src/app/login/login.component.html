@@ -1,0 +1,15 @@
+<form class="form-signin" style="margin-top: 50px">
+  <div style="text-align: center;"><img class="mb-4" src="../../assets/android-chrome-192x192.png" alt="" width="72" height="72"></div>
+  <h1 class="h3 mb-3 font-weight-normal">Entre com seu e-mail e senha para logar no sistema.</h1>
+
+  <label for="inputEmail" class="sr-only">Usuário</label>
+  <input [(ngModel)]="usuario.email" type="email" id="inputEmail" name="email" class="form-control" placeholder="usuario@email.com.br" required autofocus>
+
+  <label for="inputSenha" class="sr-only">Senha</label>
+  <input [(ngModel)]="usuario.senha" type="password" id="inputSenha" name="senha" class="form-control" placeholder="******" required>
+
+  <button class="btn btn-lg btn-primary btn-block" type="submit" name="action" (click)="fazerLogin()">Logar</button>
+  <br>
+  <p class="text-muted"><u>E-mail</u>: admin@mmi.com.br</p>
+  <p class="text-muted"><u>Senha</u>: admin</p>
+</form>

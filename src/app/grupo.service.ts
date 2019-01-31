@@ -42,10 +42,5 @@ export class GrupoService {
     return this.http.get<any[]>(`${this.gruposUrlGet}${id}`, { headers: headers });
   }
 
-  listarNCM() {
-    const headers = new HttpHeaders();
-    headers.set('Content-Type', 'application/json; charset=utf-8');
-    return this.http.get<any[]>(`${this.ncmsUrlListar}`, { headers: headers });
-  }
 
 }
