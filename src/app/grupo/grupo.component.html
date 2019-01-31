@@ -1,0 +1,55 @@
+<div class="row">
+  <form method="post" #frm="ngForm" (ngSubmit)="criarGrupo(frm)">
+    <div class="form-group">
+      <label>Descrição:</label>
+
+      <input type="text"
+             class="form-control"
+             id="inputDescricao"
+             name="descricao"
+             placeholder="Descrição"
+             [(ngModel)]="grupo.descricao" required />
+
+      <small class="form-text text-muted">Descrição do grupo.</small>
+    </div>
+    <button type="submit" class="btn btn-primary" [disabled]="frm.invalid">Cadastrar</button>
+  </form>
+</div>
+<br>
+<div class="row">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Descrição</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of grupos">
+          <th scope="row">{{c.id}}</th>
+          <td>
+              <div class="input-group mb-3">
+                  <input class="form-control" [(ngModel)]="c.descricao" required>
+                  <div class="input-group-append">
+                    <button class="btn btn-primary" (click)="atualizarGrupo(c.id, c.descricao)">Atualizar</button>
+                  </div>
+              </div>
+          </td>
+        <td>
+          <button class="btn btn-danger" (click)="deletaGrupo(c.id)">Excluir</button>
+        </td>
+        <td>
+          <button class="btn btn-info" (click)="buscarPorGrupo(c.id)">Ver</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="form-group">
+    <label>NCM:</label>
+    <select class="custom-select" >
+      <option *ngFor="let n of ncms" value="{{n.id}}">{{n.codigo}}</option>
+    </select>
+  </div>
+</div>
